@@ -1,5 +1,7 @@
 {
   "name": "sale-alert",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "bootstrap": "^4.5.0"
+  }
 }

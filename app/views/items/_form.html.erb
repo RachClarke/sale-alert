@@ -1,0 +1,8 @@
+<%= simple_form_for(item) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :image %>
+  <%= f.input :url %>
+  <%= f.input :price %>
+  <%= f.association :shop %>
+  <%= f.button :submit %>
+<% end %>
