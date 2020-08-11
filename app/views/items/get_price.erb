@@ -1,0 +1,3 @@
+<h1>Current Price of <%= @item.name %>: £<%= @item.get_price(@item.url) / 100 %></h1>
+
+<%= link_to "Back to #{@item.name}", item_path(@item) %>
