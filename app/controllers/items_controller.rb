@@ -6,6 +6,7 @@ class ItemsController < ApplicationController
   end
 
   def show
+    @previous_prices = @item.previous_prices.order('created_at DESC')
   end
 
   def new
@@ -48,6 +49,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:name, :image, :url, :price, :shop_id)
+    params.require(:item).permit(:name, :image, :url, :current_price, :shop_id)
   end
 end

@@ -10,17 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_10_134412) do
+ActiveRecord::Schema.define(version: 2020_08_12_093643) do
 
   create_table "items", force: :cascade do |t|
     t.string "name"
     t.string "image"
     t.string "url"
-    t.integer "price"
+    t.integer "current_price"
     t.integer "shop_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["shop_id"], name: "index_items_on_shop_id"
+  end
+
+  create_table "previous_prices", force: :cascade do |t|
+    t.integer "price"
+    t.integer "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["item_id"], name: "index_previous_prices_on_item_id"
   end
 
   create_table "shops", force: :cascade do |t|
