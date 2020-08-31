@@ -3,6 +3,7 @@ require 'nokogiri'
 
 class Item < ApplicationRecord
   belongs_to :shop
+  belongs_to :user
   has_many :previous_prices, dependent: :destroy
   validates :name, :image, :url, :current_price, presence: true
   validates :current_price, numericality: { only_integer: true }

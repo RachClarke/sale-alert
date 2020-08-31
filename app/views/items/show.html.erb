@@ -1,4 +1,4 @@
-<h1><%= @item.name %></h1>
+<h2><%= @item.name %></h2>
 
 <p>Price: £<%= @item.current_price / 100 %> | <%= link_to 'Get current price!', "/items/#{@item.id}/get_price" %></p>
 

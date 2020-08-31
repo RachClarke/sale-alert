@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :set_item, only: [:show, :edit, :update, :destroy, :get_price]
 
   def index
-    @items = Item.all
+    @items = Item.where("user_id = #{current_user.id}")
   end
 
   def show
@@ -45,7 +45,11 @@ class ItemsController < ApplicationController
   private
 
   def set_item
-    @item = Item.find(params[:id])
+    if Item.find(params[:id]).user == current_user
+      @item = Item.find(params[:id])
+    else
+      redirect_to root_path
+    end
   end
 
   def item_params
