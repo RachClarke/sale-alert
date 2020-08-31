@@ -1,0 +1,7 @@
+<p>Hi <%= @user.email %>,</p>
+
+<p>The price of <%= @item.name %> has changed:</p>
+<p>Old price: £<%= @item.previous_prices.last.price / 100 %></p>
+<p>New price: £<%= @item.current_price / 100 %></p>
+
+<p>Thanks!</p>
