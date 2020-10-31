@@ -1,13 +1,22 @@
-<h2><%= @item.name %></h2>
+<div class="container" style="display: flex; justify-content: center;">
 
-<p>Price: £<%= @item.current_price / 100 %> | <%= link_to 'Get current price!', "/items/#{@item.id}/get_price" %></p>
+  <div class="shadow p-3" style="width: 60%; text-align: center">
 
-<p>Price history: <% @previous_prices.each do |prev_price| %>
-  £<%= prev_price.price / 100 %><%= ', ' if prev_price != @item.previous_prices.first %>
-  <% end %>
-</p>
+    <h2><%= @item.name %></h2>
 
-<p>URL: <%= @item.url %></p>
-<p>Shop: <%= @item.shop.name %></p>
-<p>Image:</p>
-<img src=<%= @item.image %> alt="" style="width: 50%;">
+    <p class="font-weight-bold">Price: £<%= @item.current_price / 100 %>
+    <%= link_to 'Get current price', "/items/#{@item.id}/get_price", class:"btn btn-primary" %></p>
+
+    <p>Price history: <% @previous_prices.each do |prev_price| %>
+      £<%= prev_price.price / 100 %><%= ', ' if prev_price != @item.previous_prices.first %>
+      <% end %>
+    </p>
+
+    <a href="<%= @item.url %>" target="_blank"><%= @item.url %></a>
+    <p>Shop: <%= @item.shop.name %></p>
+
+    <img src=<%= @item.image %> alt="" style="width: 50%;">
+
+  </div>
+
+</div>
